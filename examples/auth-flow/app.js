@@ -1,7 +1,7 @@
 import React from 'react'
 import createReactClass from 'create-react-class'
 import { render } from 'react-dom'
-import { browserHistory, Router, Route, Link, withRouter } from 'react-router'
+import { browserHistory, Router, Route, Link, withRouter, RouterContextMain } from 'react-router'
 
 import withExampleBasename from '../withExampleBasename'
 import auth from './auth'
@@ -44,19 +44,19 @@ const App = createReactClass({
   }
 })
 
-const Dashboard = createReactClass({
-  render() {
-    const token = auth.getToken()
+const Dashboard = () => {
+  const con = React.useContext(RouterContextMain)
+  const token = auth.getToken()
 
-    return (
-      <div>
-        <h1>Dashboard</h1>
-        <p>You made it!</p>
-        <p>{token}</p>
-      </div>
-    )
-  }
-})
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <p>You made it askjdhkds!</p>
+      <p>{token}</p>
+      <p>Context: {JSON.stringify(con)}</p>
+    </div>
+  )
+}
 
 const Login = withRouter(
   createReactClass({
