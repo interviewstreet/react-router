@@ -1,0 +1,27 @@
+repo:
+  name: react-router
+  description: Declarative routing for React
+  owner: ReactTraining
+
+prerequisites:
+  - name: GitHub CLI
+  - name: npm
+  - name: node
+    version: '>=12.0.0'
+
+setup:
+  - npm install
+  - npm start
+
+dev:
+  command: npm start
+  port: 3000
+
+build:
+  command: npm run build
+
+test:
+  command: npm test
+
+lint:
+  command: npm run lint
